@@ -1,20 +1,59 @@
-﻿// Task_2.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
-//
-
-#include <iostream>
+﻿#include <iostream>
 
 int main()
 {
-    std::cout << "Hello World!\n";
+	setlocale(LC_ALL, "rus");
+	int firstSales, secondSales, thirdSales, firstSalary, secondSalary, thirdSalary;
+	
+	// Ввод количества продаж менеджеров
+	std::cout << "Введите количество продаж первого менеджера:";
+	std::cin >> firstSales;
+	std::cout << "Введите количество продаж второго менеджера:";
+	std::cin >> secondSales;
+	std::cout << "Введите количество продаж третьего менеджера:";
+	std::cin >> thirdSales;
+
+	// Уровень продаж первого менеджера
+	if (firstSales < 500)
+	{
+		firstSalary = firstSales + 0.03 * firstSales;
+	}
+	else if (firstSales >= 500 and firstSales < 1000)
+	{
+		firstSalary = firstSales + 0.05 * firstSales;
+	}
+	else if (firstSales >= 1000)
+	{
+		firstSalary = firstSales + 0.08 * firstSales;
+	}
+
+	// Уровень продаж второго менеджера
+	if (secondSales < 500)
+	{
+		secondSalary = secondSales + 0.03 * secondSales;
+	}
+	else if (secondSales >= 500 and secondSales < 1000)
+	{
+		secondSalary = secondSales + 0.05 * secondSales;
+	}
+	else if (secondSales >= 1000)
+	{
+		secondSalary = secondSales + 0.08 * secondSales;
+	}
+
+	// Уровень продаж третьего менеджера
+	if (thirdSales < 500)
+	{
+		thirdSalary = thirdSales + 0.03 * thirdSales;
+	}
+	else if (thirdSales >= 500 and thirdSales < 1000)
+	{
+		thirdSalary = thirdSales + 0.05 * thirdSales;
+	}
+	else if (thirdSales >= 1000)
+	{
+		thirdSalary = thirdSales + 0.08 * thirdSales;
+	}
+
+	std::cout << secondSalary;
 }
-
-// Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
-// Отладка программы: F5 или меню "Отладка" > "Запустить отладку"
-
-// Советы по началу работы 
-//   1. В окне обозревателя решений можно добавлять файлы и управлять ими.
-//   2. В окне Team Explorer можно подключиться к системе управления версиями.
-//   3. В окне "Выходные данные" можно просматривать выходные данные сборки и другие сообщения.
-//   4. В окне "Список ошибок" можно просматривать ошибки.
-//   5. Последовательно выберите пункты меню "Проект" > "Добавить новый элемент", чтобы создать файлы кода, или "Проект" > "Добавить существующий элемент", чтобы добавить в проект существующие файлы кода.
-//   6. Чтобы снова открыть этот проект позже, выберите пункты меню "Файл" > "Открыть" > "Проект" и выберите SLN-файл.
