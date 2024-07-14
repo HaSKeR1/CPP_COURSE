@@ -1,14 +1,13 @@
 ﻿#include <iostream>
 #include <fstream>
 #include <string>
-#include <vector>
 
 int main()
 {
     setlocale(LC_ALL, "rus");
-    std::ifstream inputFile("example.txt");
-    std::string currentRow;
-    std::vector<std::string> fileRows;
+    std::ifstream inputFile("input.txt");
+    std::string line;
+    size_t maxLength = 0;
 
     if (!inputFile.is_open())
     {
@@ -16,11 +15,17 @@ int main()
         return 1;
     }
 
-    while (std::getline(inputFile, currentRow))
+    while (std::getline(inputFile, line))
     {
-        fileRows.push_back(currentRow);
+        if (line.length() > maxLength)
+        {
+            maxLength = line.length();
+        }
     }
 
     inputFile.close();
+
+    std::cout << "Длина самой длинной строки: " << maxLength << std::endl;
+
     return 0;
 }
