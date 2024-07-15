@@ -3,6 +3,9 @@
 #include <ctime>
 #include <cstdlib>
 #include <algorithm>
+#include <windows.h>
+#include <mmsystem.h>
+#pragma comment(lib, "winmm.lib")
 
 void initializeBoard(std::vector<std::vector<char>>& board, std::vector<char>& values)
 {
@@ -63,6 +66,9 @@ int main()
 {
     setlocale(LC_ALL, "rus");
     int rows, cols;
+    const TCHAR* failure = TEXT("failure.wav");
+    const TCHAR* success = TEXT("success.wav");
+
     std::cout << "Введите кол-во строк: ";
     std::cin >> rows;
     std::cout << "Введите кол-во столбцов: ";
@@ -119,11 +125,15 @@ int main()
 
         if (board[x1][y1] == board[x2][y2])
         {
+            PlaySound(success, NULL, SND_FILENAME | SND_ASYNC);
             std::cout << "Пара найдена!" << std::endl;
+            Sleep(1000);
         }
         else
         {
+            PlaySound(failure, NULL, SND_FILENAME | SND_ASYNC);
             std::cout << "Пары нет. Попробуйте снова." << std::endl;
+            Sleep(1000);
             revealed[x1][y1] = false;
             revealed[x2][y2] = false;
         }
